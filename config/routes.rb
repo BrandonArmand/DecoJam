@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'user/:id', to: 'user#show'
+
   devise_for :users
   root 'welcome#home'
 
