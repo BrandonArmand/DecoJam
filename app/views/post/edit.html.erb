@@ -1,2 +1,11 @@
-<h1>Post#edit</h1>
-<p>Find me in app/views/post/edit.html.erb</p>
+<%= link_to 'Delete', post_path(@user, @post.id), method: :delete %>
+<%= form_for @post do |f| %>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <%= image_tag @post.image, class: 'thumb' %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

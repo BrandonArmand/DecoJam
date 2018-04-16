@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+.thumb{
+  width: 16%;
+}
+.post{
+  max-height: 500px;
+}

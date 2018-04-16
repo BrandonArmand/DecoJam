@@ -1,1 +1,6 @@
 <h1><%= @user.username %></h1>
+<% @posts.each do |p| %>
+  <%= link_to post_path(@user.id, p.id) do %>
+    <%= image_tag p.image, class: 'thumb' %>
+  <% end %>
+<% end %>

@@ -10,4 +10,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
+
+  def confirm_user(user, redirect)
+    if current_user.id == user.id
+      return true
+    else
+      redirect_to redirect
+    end
+  end
 end
