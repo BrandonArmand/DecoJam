@@ -4,6 +4,10 @@ class PostController < ApplicationController
     @post = @user.posts.find(params[:id])
   end
 
+  def index
+    @posts = Post.all
+  end
+
   def edit
     @user = User.find(params[:user_id])
     @post = Post.find(params[:id])
@@ -44,7 +48,7 @@ class PostController < ApplicationController
   def destroy
     @user = User.find(params[:user_id])
     @post = Post.find(params[:id])
-    
+
     if confirm_user(@user, post_path(@user, @post.id))
       if @post.destroy
         redirect_to user_show_path(current_user)

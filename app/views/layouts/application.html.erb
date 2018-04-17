@@ -10,6 +10,7 @@
 
   <body>
     <%= link_to 'home', root_path %>
+    <%= link_to 'Explore', post_index_path %>
     <% if current_user %>
       <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
       <%= link_to 'Account', user_show_path(current_user) %>
