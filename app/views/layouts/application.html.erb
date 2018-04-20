@@ -10,12 +10,9 @@
 
   <body>
     <%= link_to 'home', root_path %>
-    <%= link_to 'Explore', post_index_path %>
     <% if current_user %>
       <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
       <%= link_to 'Account', user_show_path(current_user) %>
-      <%= link_to 'Submit', new_post_path %>
-      <h2><%= current_user.username %></h2>
     <% else %>
       <%= link_to 'sign in', new_user_session_path %>
       <%= link_to 'sign up', new_user_registration_path %>

@@ -1,0 +1,13 @@
+<h1>Theme: <%= @task.title %></h1>
+<% if user_signed_in? && @submitted == nil %>
+  <div class="submit">
+    <h1>You haven't completed this Jam!</h1>
+    <h1><%= link_to "New Submission", new_post_path(@task) %></h1>
+  </div>
+<% end %>
+<h2>Top Submissions</h2>
+<% @task.posts.each do |t| %>
+  <%= link_to post_path(t.user.id, t.id) do %>
+    <%= image_tag t.image, class: 'thumb' %>
+  <% end %>
+<% end %>

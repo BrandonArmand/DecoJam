@@ -15,8 +15,8 @@ class PostController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:user_id])
     @post = Post.find(params[:id])
+    @user = @post.user
 
     if confirm_user(@user, post_path(@user, @post.id))
       @post.title = params[:post][:title]
@@ -30,6 +30,7 @@ class PostController < ApplicationController
 
   def new
     @post = Post.new
+    @task = Task.find(params[:task_id])
   end
 
   def create
@@ -37,6 +38,7 @@ class PostController < ApplicationController
     @post.title = params[:post][:title]
     @post.image = params[:post][:image]
     @post.user = current_user
+    @post.task = Task.find(params[:post][:task])
 
     if @post.save
       redirect_to post_path(current_user.id, @post)

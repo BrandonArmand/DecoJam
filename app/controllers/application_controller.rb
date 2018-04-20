@@ -18,4 +18,10 @@ class ApplicationController < ActionController::Base
       redirect_to redirect
     end
   end
+
+  def redirect_home
+    if user_signed_in?
+      redirect_to tasks_path
+    end
+  end
 end

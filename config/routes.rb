@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
-
   root 'welcome#home'
 
   get 'u/:id', to: 'user#show', as: 'user_show'
   resources :post, path: 'u/:user_id/submission/', except: [:create, :new, :index]
 
   resources :posts, to: 'post#create', only: [:create]
-  get '/submit', to: 'post#new', as: 'new_post'
+  get '/tasks/:task_id/submit', to: 'post#new', as: 'new_post'
   get '/explore', to: 'post#index', as: 'post_index'
+
+  resources :tasks
 
   devise_for :users, path: '', path_names: {
     sign_in: 'login',

@@ -1,3 +1,4 @@
+<h1><%= @task.title %></h1>
 <%= form_for @post do |f| %>
   <div class="field">
     <%= f.label :title %><br>
@@ -7,6 +8,7 @@
     <%= f.label :image %><br>
     <%= f.file_field :image %>
   </div>
+    <%= f.hidden_field :task, :value => params[:task_id] %>
   <div class="actions">
     <%= f.submit %>
   </div>
