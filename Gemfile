@@ -36,7 +36,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # image uploading gem
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 2.1'
 # Fake data generator
 gem 'faker', :git => 'git://github.com/stympy/faker.git', :branch => 'master'
 # User Authentication
